@@ -1,0 +1,39 @@
+<md-toolbar color="primary">
+
+  <md-icon>link</md-icon>
+  <span class="m-l-10"> <a class="app-title" [routerLink]="['/']">{{appName}} </a></span>
+
+  <span class="example-fill-remaining-space"></span>
+
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <nav>
+    <md-menu #menu="mdMenu">
+      <a [routerLink]="['/webpage/search']" routerLinkActive="active" class="block-link">
+        <button md-menu-item>
+          <md-icon>search</md-icon>
+          <span> Search </span>
+        </button>
+      </a>
+      <a [routerLink]="['/config/users']" routerLinkActive="active" class="block-link">
+        <button md-menu-item>
+          <md-icon>supervisor_account</md-icon>
+          <span> Users </span>
+        </button>
+      </a>
+      <a [routerLink]="['/config/enums']" routerLinkActive="active" class="block-link">
+        <button md-menu-item>
+          <md-icon>list</md-icon>
+          <span> Enums </span>
+        </button>
+      </a>
+    <a [routerLink]="['/login']" routerLinkActive="active" class="block-link">
+        <button md-menu-item>
+          <md-icon>cancel</md-icon>
+          <span> Logout </span>
+        </button>
+      </a>
+    </md-menu>
+  </nav>
+</md-toolbar>

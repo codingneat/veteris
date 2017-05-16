@@ -1,0 +1,9 @@
+  <div>
+    <label>Theme: </label>
+    <div class="input-group">
+      <input [(ngModel)]="name" class="form-control" placeholder="name" />
+      <span class="input-group-btn">
+         <button (click)="save()" [disabled]="name==''" class="btn btn-success">Save</button>
+      </span>
+    </div>
+  </div>
