@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MainLayoutComponent } from './layouts/main-layout.component';
-import { HomeComponent } from './components/home.component';
-
+import { DashboardComponent } from './components/dashboard';
 
 
 const appRoutes = [
@@ -22,7 +21,7 @@ const appRoutes = [
     children: [
       {
          path: 'home', 
-         component: HomeComponent 
+         component: DashboardComponent 
       },
       {
         path: 'config',

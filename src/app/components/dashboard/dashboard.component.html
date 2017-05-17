@@ -1,0 +1,31 @@
+<div fxLayout="row">
+    <div fxFlex="34%" fxFlex.lt-sm="100%" fxLayoutAlign="center" fxFlexOffset="10px">
+        <div fxLayout="column" class="width100">
+            <md-card>
+                <md-card-header>
+                    <md-card-title>Add Website:</md-card-title>
+                </md-card-header>
+                <md-card-content>
+                    <md-input-container class="width100">
+                        <input [(ngModel)]="name" mdInput placeholder="website" />
+                    </md-input-container>
+                </md-card-content>
+                <md-card-actions class="text-right">
+                    <button md-raised-button color="primary" (click)="add()" [disabled]="name==''" class="btn btn-success">Add</button>
+                </md-card-actions>
+            </md-card>
+            <br>
+            <md-card>
+                <md-list>
+                    <h3 md-subheader>Queries</h3>
+                    <md-list-item>
+                        <md-icon class="query-item">note</md-icon>Item 1
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </div>
+    </div>
+    <div fxFlex="66%" fxFlex.lt-sm="100%" fxFlexOffset="10px">
+       <webpages class="width100" [webpages]="webpages$ | async"></webpages> 
+    </div>
+</div>
