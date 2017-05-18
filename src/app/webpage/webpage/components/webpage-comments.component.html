@@ -1,0 +1,25 @@
+<div>
+    <div fxLayout="row">
+        <md-input-container class="full-width">
+            <textarea [(ngModel)]="comment" style="height:50px" mdInput placeholder="Comment"> </textarea>
+        </md-input-container>
+
+    </div>
+
+    <div class="input-group-btn">
+        <button md-raised-button color="primary" type="button" (click)="save()" class="btn btn-success">Save</button>
+    </div>
+
+    <br/><br/>
+
+    <div fxLayout="row">
+        <div fxFlex="100%" fxFlex.lt-sm="100%" fxFlexOffset="10px">
+            <ul *ngFor="let comment of webpage.comments; let i = index">
+                
+                <li>{{comment.user.firstName}} {{comment.user.lastName}} : {{comment.text}}</li>
+
+            </ul>
+        </div>
+
+    </div>
+</div>

@@ -138,7 +138,7 @@ export class WebpageService {
       .then(
       res => {
         //   this.toasterService.pop('success', 'Success', 'Success 7');
-        this.store.dispatch(new webpages.loadWebpages(res.json()));
+        this.store.dispatch(new webpages.loadWebpagesSucceeded(res.json()));
       })
       .catch(this.handleError);
   }

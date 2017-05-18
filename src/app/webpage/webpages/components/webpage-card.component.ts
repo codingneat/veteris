@@ -9,7 +9,7 @@ import { WebpageService }  from '../../webpage.service';
 @Component({
   selector: 'webpage-card',
   templateUrl: './webpage-card.component.html',
-  styleUrls: [ './webpage-card.component.scss' ]
+  styleUrls: [ './webpage-card.component.styl' ]
 })
 
 export class WebpageCardComponent{

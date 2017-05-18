@@ -48,7 +48,7 @@ export class addTag implements Action {
 }
 
 export class loadLastWebpages implements Action {
-  readonly type = ADD_COMMENT;
+  readonly type = LOAD_LAST_WEBPAGES;
 
   constructor() { }
 }
@@ -74,3 +74,9 @@ export type Actions
    | addTag
    | loadLastWebpages
    | loadWebpagesSucceeded;
+
+export const getWebpagesState = (state: fromRoot.AppState) => state.webpages.webpages.webpages;
+
+export const getWebpageState = (state: fromRoot.AppState) => state.webpages.webpage.webpage;
+
+

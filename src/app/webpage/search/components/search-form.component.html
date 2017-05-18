@@ -1,0 +1,124 @@
+<md-card>
+    <md-card-header>
+        <md-card-title>Search Websites:</md-card-title>
+    </md-card-header>
+    <md-card-content>
+        <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasType"></md-checkbox>
+                <md-select placeholder="Type" [(ngModel)]="search.type">
+                    <md-option value="Article">Article</md-option>
+                    <md-option value="Repository">Repository</md-option>
+                    <md-option value="Tutorial">Tutorial</md-option>
+                    <md-option value="Video">Video</md-option>
+                </md-select>
+            </div>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasStatus"></md-checkbox>
+                <md-select placeholder="Status" [(ngModel)]="search.status">
+                    <md-option value="Active">Active</md-option>
+                    <md-option value="ToDefine">ToDefine</md-option>
+                    <md-option value="Outdated">Outdated</md-option>
+                    <md-option value="Deprecated">Deprecated</md-option>
+                </md-select>
+            </div>
+        </div>
+        <br/>
+        <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasPoints"></md-checkbox>
+                <md-select placeholder="Pertinence" [(ngModel)]="search.points">
+                    <md-option [value]="1">1</md-option>
+                    <md-option [value]="2">2</md-option>
+                    <md-option [value]="3">3</md-option>
+                    <md-option [value]="4">4</md-option>
+                    <md-option [value]="5">5</md-option>
+                </md-select>
+            </div>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasIsUp"></md-checkbox>
+                <md-select placeholder="IsUp" [(ngModel)]="search.isUp">
+                    <md-option value="True">Yes</md-option>
+                    <md-option value="False">No</md-option>
+                </md-select>
+            </div>
+        </div>
+        <br/>
+        <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasGrade"></md-checkbox>
+                <md-select placeholder="My Status" [(ngModel)]="search.grade">
+                    <md-option value="Not Seen">Not Seen</md-option>
+                    <md-option value="Seen">Seen</md-option>
+                    <md-option value="Red">Red</md-option>
+                </md-select>
+            </div>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasFavourite"></md-checkbox>
+                <md-select placeholder="Favourite" [(ngModel)]="search.favourite">
+                    <md-option value="True">Yes</md-option>
+                    <md-option value="False">No</md-option>
+                </md-select>
+            </div>
+        </div>
+        <br/>
+        <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasTitle"></md-checkbox>
+                <md-input-container>
+                    <input [(ngModel)]="search.title" mdInput placeholder="Title" />
+                </md-input-container>
+            </div>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasAuthor"></md-checkbox>
+                <md-input-container>
+                    <input [(ngModel)]="search.author" mdInput placeholder="Author" />
+                </md-input-container>
+            </div>
+        </div>
+        <br/>
+      <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasTheme"></md-checkbox>
+                <md-select placeholder="Theme" [(ngModel)]="search.theme">
+                    <md-option *ngFor="let theme of themes$ | async" [value]="theme._id">{{ theme.name}}</md-option>
+                </md-select>
+            </div>
+            <div fxFlex="50%" fxLayoutAlign="start">
+                <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasCategory"></md-checkbox>
+                <md-select placeholder="Category" [(ngModel)]="search.category">
+                    <md-option *ngFor="let category of categories$ | async" [value]="category._id">{{ category.name}}</md-option>
+                </md-select>
+            </div>
+        </div>
+        <br/> 
+       <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="100%" fxLayoutAlign="start">
+                <md-input-container class="width100">
+                    <input class="width100" [(ngModel)]="tag" #searchBox mdInput placeholder="Tag" id="search-box" (keyup)="searchTag(searchBox.value)" />
+                </md-input-container>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="100%" fxLayoutAlign="start">
+              <div class="tag-search width100">
+                 <div class="tag-search-item search-result" *ngFor="let tag of tags | async" (click)="addTag(tag)">
+                        {{tag.name}}
+                    </div>  
+                </div> 
+            </div>
+        </div>
+        <br/>
+        <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="100%" fxLayoutAlign="start">
+             <md-chip-list *ngFor="let tag of search.tags">
+                    <md-chip class="tag-chip">{{tag}}</md-chip>
+                </md-chip-list> 
+            </div>
+        </div>  
+        <br/><br/>
+        <div class="input-group-btn">
+            <button md-raised-button color="primary" type="button" (click)="searchWebsites()" class="btn btn-success">Save</button>
+        </div>
+    </md-card-content>
+</md-card>

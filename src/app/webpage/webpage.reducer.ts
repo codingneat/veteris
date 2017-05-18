@@ -56,7 +56,7 @@ export function webpagesReducer(state = initialState, action): WebpageState {
          error: null 
       }});
     case webpages.ADD_COMMENT:
-      return  Object.assign({}, state, {
+  /*    return  Object.assign({}, state, {
          webpage : Object.assign({}, state.webpage,  { comments:[
             ...state.webpage.webpage.comments.slice(0, state.webpage.webpage.comments.length),
             action.payload,
@@ -64,9 +64,9 @@ export function webpagesReducer(state = initialState, action): WebpageState {
          ]}),
          loading: false, 
          error: null 
-      });
+      });  */
     case webpages.ADD_TAG:
-      return  Object.assign({}, state, {
+     /* return  Object.assign({}, state, {
          webpage : Object.assign({}, state,  { webpage : { tags:[
             ...state.webpage.webpage.tags.slice(0, state.webpage.webpage.tags.length),
             action.payload,
@@ -74,7 +74,7 @@ export function webpagesReducer(state = initialState, action): WebpageState {
          ]}}),
          loading: false, 
          error: null 
-      });
+      }); */
     case webpages.LOAD_WEBPAGES_SUCCEEDED:
         return  Object.assign({}, state, { webpages:{
             webpages : action.payload,

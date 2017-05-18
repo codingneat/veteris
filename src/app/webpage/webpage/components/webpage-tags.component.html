@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayout.lt-sm="column">
+  <div fxFlex="40%" fxFlex.lt-sm="100%">
+    <div id="search-component">
+      <h4>Tag Search</h4>
+      <md-input-container>
+      <input [(ngModel)]="tag" #searchBox mdInput placeholder="tag" id="search-box" (keyup)="search(searchBox.value)" />
+      </md-input-container>
+      <div class="tag-search" >
+        <div class="tag-search-item search-result" *ngFor="let tag of tags | async" (click)="addTag(tag)" >
+          {{tag.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="60%" fxFlex.lt-sm="100%" class="tags-webpage" fxLayoutAlign="center">
+    <md-chip-list *ngFor="let tag of webpage.tags">
+      <md-chip class="tag-chip">{{tag}}</md-chip>
+    </md-chip-list>
+  </div>
+</div>

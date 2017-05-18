@@ -27,6 +27,10 @@ const appRoutes = [
         path: 'config',
         loadChildren: 'app/config/config.module#ConfigModule'
       },
+      {
+        path: 'webpage',
+        loadChildren: 'app/webpage/webpage.module#WebpageModule'
+      },
     ]
   }
 ];

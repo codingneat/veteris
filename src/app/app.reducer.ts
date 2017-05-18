@@ -5,13 +5,15 @@ import { CounterState } from './components/home.component';
 import { authReducer, AuthState } from './auth/auth.reducer';
 import { enumsReducer, EnumState } from './config/enums/enums.reducer';
 import { usersReducer, UserState } from './config/users/users.reducer';
+import { webpagesReducer, WebpageState } from './webpage/webpage.reducer';
 
 export interface AppState {
   RouterState,
   authState: AuthState,
   counterState: CounterState,
   enums: EnumState,
-  users: UserState
+  users: UserState,
+  webpages: WebpageState
 }
 
 const reducers = {
@@ -19,7 +21,8 @@ const reducers = {
   counter: counterReducer,
   auth: authReducer,
   enums: enumsReducer,
-  users: usersReducer
+  users: usersReducer,
+  webpages: webpagesReducer
 };
 
 const productionReducer: ActionReducer<AppState> = combineReducers(reducers);

@@ -1,0 +1,58 @@
+<md-card>
+    <md-card-header>
+        <md-card-title class="title-webpage">{{webpage.title}}</md-card-title>
+        <div md-card-avatar class="header-image"></div>
+    </md-card-header>
+    <div class="web-image">
+        <img class="card-image" md-card-image [src]="webpage.image">
+    </div>
+    <md-card-content>
+        <p class="web-description">
+            {{webpage.description}}
+        </p>
+        <ul>
+            <li>
+                <a [href]="webpage.url" target="_blank"> {{webpage.url}} </a>
+            </li>
+            <li> 
+                <span class="web-label"> Added At: </span> 
+                <span> {{webpage.created_at | date: 'dd/MM/yyyy'}} </span>
+            </li>
+            <li> 
+                <span class="web-label"> Type: </span> 
+                <span> {{webpage.type}} </span>
+            </li>
+            <li *ngIf="webpage?.website != null">
+                <span class="web-label"> Website: </span> 
+                <span><a [href]="webpage?.website.url" target="_blank"> {{webpage?.website.url}} </a> </span>
+            </li>
+            <li>
+                <span class="web-label"> User: </span> 
+                <span>{{webpage.user != undefined ? webpage.user.firstName + ' ' + webpage.user.lastName : ''}} </span>
+            </li>
+        </ul>
+    </md-card-content>
+    <md-card-actions>
+        <div fxLayout="row" fxLayoutWrap>
+            <div fxFlex="33%" fxLayoutAlign="center" class="replace-input">
+                <md-select placeholder="Pertinence" [(ngModel)]="points" (change)="changePertinence()">
+                    <md-option [value]="1">1</md-option>
+                    <md-option [value]="2">2</md-option>
+                    <md-option [value]="3">3</md-option>
+                    <md-option [value]="4">4</md-option>
+                    <md-option [value]="5">5</md-option>
+                </md-select>
+            </div>
+            <div fxFlex="33%" fxLayoutAlign="center" class="replace-input">
+                <md-select placeholder="My Status" [(ngModel)]="grade" (change)="changeGrade()">
+                    <md-option value="Not Seen">Not Seen</md-option>
+                    <md-option value="Seen">Seen</md-option>
+                    <md-option value="Red">Red</md-option>
+                </md-select>
+            </div>
+            <div fxFlex="33%" fxLayoutAlign="center">
+                <md-slide-toggle [(ngModel)]="favourite" (change)="changeFavourite()">Favourite</md-slide-toggle>
+            </div>
+        </div>
+    </md-card-actions>
+</md-card>
