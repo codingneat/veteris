@@ -1,27 +1,32 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 import { ActivatedRoute, Params }   from '@angular/router';
-/*
-import { WebpagesActions } from '../webpages.actions'; */
+
+import * as fromRoot from '../../app.reducer';
+import * as webpages  from '../webpage.actions';
+import { WebpageService }  from '../webpage.service';
+import { Webpage } from '../../models/webpage'
 
 
 @Component({
   selector: 'webpage',
   templateUrl: './webpage.component.html',
-  styleUrls: ['./webpage.component.scss']
+  styleUrls: ['./webpage.component.styl']
 })
 export class WebpageComponent {
+   webpage$: Observable<any[]>
 
   constructor(    
+    private store: Store<fromRoot.AppState>,
     private route: ActivatedRoute) {
+      this.webpage$ = store.select(webpages.getWebpageState);
   }
-
-  //@select(['webpages', 'webpage', 'webpage']) readonly webpage$: Observable<any[]>
 
 
   ngOnInit() {
-   /*  this.route.params
-      .subscribe((params: Params) => this.ngRedux.dispatch(this.actions.loadWebpage((params['id']))));*/
+     this.route.params
+      .subscribe((params: Params) => this.store.dispatch(new webpages.loadWebpage(params['id'])));
   } 
 
 

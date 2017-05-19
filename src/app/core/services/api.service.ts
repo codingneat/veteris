@@ -9,58 +9,73 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ApiService {
-  private apiUrl = `${environment.apiUrl}`;
-  headers = new Headers();
+    private apiUrl = `${environment.apiUrl}`;
 
+    constructor(private http: Http) {
+    }
 
-  constructor(private http: Http) {
-   this.headers.append('Content-Type', 'application/json');
-   let authToken = localStorage.getItem('id_token');
-   this.headers.append('Authorization', `Bearer ${authToken}`);
-  }
+    get(endpoint: string) {
+        const url = `${this.apiUrl}/${endpoint}`;
+        let authToken = localStorage.getItem('id_token');
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', `Bearer ${authToken}`);
+        let options = new RequestOptions({ headers: headers });
 
-  get(endpoint: string) {
-      const url = `${this.apiUrl}/${endpoint}`;
-      let options = new RequestOptions({ headers: this.headers });
+        return this.http.get(url, options)
+            .toPromise();
+    }
 
-      return this.http.get(url,  options)
-                 .toPromise();
-  }
+    getObs(endpoint: string) {
+        const url = `${this.apiUrl}/${endpoint}`;
+        let authToken = localStorage.getItem('id_token');
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', `Bearer ${authToken}`);
+        let options = new RequestOptions({ headers: headers });
 
-  getObs(endpoint: string) {
-      const url = `${this.apiUrl}/${endpoint}`;
-      let options = new RequestOptions({ headers: this.headers });
+        return this.http.get(url, options);
+    }
 
-      return this.http.get(url,  options);
-  }
+    post(endpoint: string) {
+        const url = `${this.apiUrl}/${endpoint}`;
+        let authToken = localStorage.getItem('id_token');
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', `Bearer ${authToken}`);
+        let options = new RequestOptions({ headers: headers });
 
-  post(endpoint: string) {
-      const url = `${this.apiUrl}/${endpoint}`;
-      let options = new RequestOptions({ headers: this.headers });
+        return this.http.post(url, options)
+            .toPromise();
+    }
 
-      return this.http.post(url,  options)
-                 .toPromise();
-  }
+    put(endpoint: string, body: any) {
+        const url = `${this.apiUrl}/${endpoint}`;
+        let authToken = localStorage.getItem('id_token');
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', `Bearer ${authToken}`);
+        let options = new RequestOptions({ headers: headers });
 
- put(endpoint: string, body: any) {
-      const url = `${this.apiUrl}/${endpoint}`;
-      let options = new RequestOptions({ headers: this.headers });
+        return this.http.put(url, body, options)
+            .toPromise();
+    }
 
-      return this.http.put(url, body, options)
-                 .toPromise();
-  }
+    delete(endpoint: string, body: any) {
+        const url = `${this.apiUrl}/${endpoint}`;
+        let authToken = localStorage.getItem('id_token');
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', `Bearer ${authToken}`);
+        let options = new RequestOptions({ headers: headers });
 
-  delete(endpoint: string, body: any) {
-      const url = `${this.apiUrl}/${endpoint}`;
-      let options = new RequestOptions({ headers: this.headers });
+        return this.http.delete(url, options)
+            .toPromise();
+    }
 
-      return this.http.delete(url, options)
-                 .toPromise();
-  }
-
-  private handleError(error: any): Promise<any> {
-   console.error('An error occurred', error); // for demo purposes only
-   return Promise.reject(error.message || error);
- }
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
+    }
 
 }

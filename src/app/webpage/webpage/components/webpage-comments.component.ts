@@ -7,7 +7,7 @@ import { WebpageService }  from '../../webpage.service';
 @Component({
   selector: 'webpage-comments ',
   templateUrl: './webpage-comments.component.html',
-  styleUrls: [ './webpage-comments.component.scss' ]
+  styleUrls: [ './webpage-comments.component.styl' ]
 })
 
 export class WebpageCommentsComponent{

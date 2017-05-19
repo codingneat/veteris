@@ -5,7 +5,7 @@ import { WebpageService }  from '../../webpage.service';
 @Component({
   selector: 'webpage-left-card ',
   templateUrl: './webpage-left-card.component.html',
-  styleUrls: [ './webpage-left-card.component.scss' ]
+  styleUrls: [ './webpage-left-card.component.styl' ]
 })
 
 export class WebpageLeftCardComponent{

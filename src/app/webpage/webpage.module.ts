@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core'
 import { SharedModule } from '../shared/shared.module';
 import { WebpageRoutingModule } from './webpage-routing.module';
-/*
+
 import { WebpageComponent } from './webpage/webpage.component';
-import { WebpageLeftCardComponent, WebpageFormMetadataComponent, WebpageCommentsComponent, WebpageTagsComponent } from './webpage/components';*/
+import { WebpageLeftCardComponent, WebpageFormMetadataComponent, WebpageCommentsComponent, WebpageTagsComponent } from './webpage/components';
 import { WebpagesComponent } from './webpages/webpages.component';
 import { WebpageCardComponent } from './webpages/components';
 import { SearchComponent } from './search/search.component';
@@ -15,11 +15,11 @@ import { WebpageService } from './webpage.service';
 @NgModule({
   declarations: [ 
     WebpageCardComponent,
- /*   WebpageComponent, 
+    WebpageComponent, 
     WebpageLeftCardComponent,
     WebpageFormMetadataComponent,
     WebpageCommentsComponent,
-    WebpageTagsComponent, */
+    WebpageTagsComponent, 
     WebpagesComponent,
     SearchComponent,
     SearchFormComponent 
@@ -32,7 +32,7 @@ import { WebpageService } from './webpage.service';
     WebpageService,
   ],
   exports: [ 
-   /* WebpageComponent, */
+    WebpageComponent, 
     WebpagesComponent
   ],
 })

@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { Webpage } from '../models/webpage';
 import * as fromRoot from '../app.reducer';
-import * as webpages  from './webpage.actions';
+import * as webpages from './webpage.actions';
 import { ApiService } from '../core/services';
 
 
@@ -17,10 +17,10 @@ export class WebpageService {
   constructor(
     private http: Http,
     private apiService: ApiService,
-    private store: Store<fromRoot.AppState> ) { 
-      let authToken = localStorage.getItem('id_token');
-      this.headers.append('Authorization', `Bearer ${authToken}`);
-    }
+    private store: Store<fromRoot.AppState>) {
+    let authToken = localStorage.getItem('id_token');
+    this.headers.append('Authorization', `Bearer ${authToken}`);
+  }
 
 
   create(name: string): Promise<any> {
@@ -29,11 +29,11 @@ export class WebpageService {
       .toPromise()
       .then(
       res => {
-     //this.toasterService.pop('success', 'Success', 'Success 2');
+        //this.toasterService.pop('success', 'Success', 'Success 2');
         res.json();
       })
       .catch(res => {
-     // this.toasterService.pop('danger', 'Error', 'Error 2');
+        // this.toasterService.pop('danger', 'Error', 'Error 2');
         this.handleError;
       });
   }
@@ -58,8 +58,8 @@ export class WebpageService {
       .toPromise()
       .then(
       res => {
-       // this.toasterService.pop('success', 'Success', 'Success 3');
-        this.store.dispatch(new webpages.updateWebpage(res.json()));
+        // this.toasterService.pop('success', 'Success', 'Success 3');
+        res.json();
       })
       .catch(this.handleError);
   }
@@ -71,8 +71,8 @@ export class WebpageService {
       .toPromise()
       .then(
       res => {
-      //  this.toasterService.pop('success', 'Success', 'Success 3');
-      this.store.dispatch(new webpages.updateWebpage(res.json()));
+        //  this.toasterService.pop('success', 'Success', 'Success 3');
+        res.json();
       })
       .catch(this.handleError);
   }
@@ -85,7 +85,7 @@ export class WebpageService {
       .then(
       res => {
         //   this.toasterService.pop('success', 'Success', 'Success 3');
-        this.store.dispatch(new webpages.updateWebpage(res.json()));
+        res.json();
       })
       .catch(this.handleError);
   }
@@ -111,8 +111,9 @@ export class WebpageService {
       .then(
       res => {
         //  this.http.pop('success', 'Success', 'Success 3');
-        if(res.json() != 0) this.store.dispatch(new webpages.addTag(tag));
-        
+
+        if (res.json() != 0) this.store.dispatch(new webpages.addTag(tag));
+
       })
       .catch(this.handleError);
   }

@@ -14,7 +14,6 @@ export class AuthService {
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
-     //localStorage.setItem('id_token', "resp.id_token");
   }
 
   login(payload: any) {
