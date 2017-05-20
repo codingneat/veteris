@@ -22,7 +22,6 @@ export class LoginComponent {
     ) { }
 
     ngOnInit() {
-
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 

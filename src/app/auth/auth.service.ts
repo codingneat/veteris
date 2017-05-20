@@ -12,6 +12,9 @@ export class AuthService {
   private id: string = "";
   private apiUrl = `${environment.apiUrl}/auth`;
   private headers = new Headers({'Content-Type': 'application/json'});
+  private socket;
+  private url = 'http://localhost:8989'; 
+
 
   constructor(private http: Http) {
   }
@@ -27,7 +30,9 @@ export class AuthService {
                 this.authenticated = true;
                 if (resp && resp.id_token) {
                   localStorage.setItem('id_token', resp.id_token);
+                  this.socket = io.connect(this.url, { query:  {id:  resp.user._id} });
                   this.id = resp.user._id;
+                  localStorage.setItem('id_user', resp.user._id);
                   return true;
                 }
               }

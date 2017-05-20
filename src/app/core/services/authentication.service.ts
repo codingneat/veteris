@@ -15,12 +15,15 @@ export class AuthenticationService {
   private apiUrl = `${environment.apiUrl}/auth`;
   private headers = new Headers({'Content-Type': 'application/json'});
   private socket;
-  private url = 'http://104.236.215.185:8989'; 
+  private url = 'http://localhost:8989'; 
 
   constructor(private http: Http) {}
 
   login(username: string, password: string) {
+    console.log("url");
       const url = `${this.apiUrl}/login/`;
+
+       console.log("url");
 
       return this.http.post(url, JSON.stringify({ email: username, password: password }), {headers: this.headers})
           .map((response: Response) => {
@@ -29,8 +32,8 @@ export class AuthenticationService {
               if(resp.success){
                 this.authenticated = true;
                 if (resp && resp.id_token) {
-                  // store user details and jwt token in local storage to keep user logged in between page refreshes
                   localStorage.setItem('id_token', resp.id_token);
+                  
                   this.socket = io.connect(this.url);
                   this.id = resp.user._id;
                   return true;

@@ -19,7 +19,6 @@ import { UsersEffects } from './config/users/users.effects';
 import { EnumsEffects } from './config/enums/enums.effects';
 import { WebpagesEffects } from './webpage/webpage.effects';
 
-
 import { AppRoutingModule } from './app.routing';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from './config/config.module';
@@ -28,7 +27,12 @@ import { UsersModule } from './config/users/users.module';
 import { EnumsModule } from './config/enums/enums.module';
 import { WebpageModule } from './webpage/webpage.module';
 
+import { MainLayoutComponentGuard } from './guards/main-layout.guard';
+import { UnauthenticatedGuard } from './guards/unauthenticated.guard';
+import { WebpageService } from './webpage/webpage.service';
 
+import { PageNotFoundComponent } from './components/page-not-found/not-found.component';
+import { SavingWebpageComponent } from './components/saving-webpage/saving-webpage.component';
 import { MainLayoutComponent } from './layouts/main-layout.component';
 import { HomeComponent } from './components/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -43,7 +47,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MainLayoutComponent,
     HomeComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    PageNotFoundComponent,
+    SavingWebpageComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +74,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     WebpageModule
   ],
   providers: [
+    MainLayoutComponentGuard,
+    UnauthenticatedGuard, WebpageService 
   ],
   bootstrap: [AppComponent]
 })
