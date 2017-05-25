@@ -58,7 +58,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     AppRoutingModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     StoreModule.provideStore(appReducer),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),

@@ -9,7 +9,7 @@ import * as app from '../app.actions';
   templateUrl: './main-layout.component.html',
 })
 export class MainLayoutComponent {
-  appName = "Tanaris";
+  appName = "Veteris";
 
     constructor(
     private store: Store<fromRoot.AppState>
