@@ -5,10 +5,12 @@ import * as io from 'socket.io-client';
 import { AuthenticationService }    from '../services';
 import { Router } from '@angular/router';
 
+import { environment } from '../../../environments/environment';
+
 @Injectable()
 export class SocketService {
   // Our localhost address that we set in our server code
-  private url = 'http://localhost:8989'; 
+  private url =  `${environment.apiUrl}`;
   private socket;
 
   constructor(private router: Router, private authenticationService: AuthenticationService) {}

@@ -8,12 +8,15 @@ import { Tag } from '../../models/tag';
 import { Category } from '../../models/category';
 import { ApiService } from '../../core/services';
 
+import { environment } from '../../../environments/environment';
+
+
 
 @Injectable()
 export class EnumsService {
-  private themesUrl = 'http://localhost:8989/themes';
-  private tagUrl = 'http://localhost:8989/tags';
-  private categoryUrl = 'http://localhost:8989/categories';
+  private themesUrl =  `${environment.apiUrl}/themes`;
+  private tagUrl =  `${environment.apiUrl}/tags`;
+  private categoryUrl =  `${environment.apiUrl}/categories`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(private http: Http, private apiService: ApiService) { 

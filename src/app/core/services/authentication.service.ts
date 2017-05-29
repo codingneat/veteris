@@ -15,7 +15,7 @@ export class AuthenticationService {
   private apiUrl = `${environment.apiUrl}/auth`;
   private headers = new Headers({'Content-Type': 'application/json'});
   private socket;
-  private url = 'http://localhost:8989'; 
+  private url =  `${environment.apiUrl}`;
 
   constructor(private http: Http) {}
 

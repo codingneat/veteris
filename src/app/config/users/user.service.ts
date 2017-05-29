@@ -5,10 +5,12 @@ import { go } from '@ngrx/router-store';
 import { User } from '../../models/user';
 import { ApiService } from '../../core/services';
 
+import { environment } from '../../../environments/environment';
+
 
 @Injectable()
 export class UserService {
-  private usersUrl = 'http://localhost:8989/users';
+  private usersUrl = `${environment.apiUrl}/users`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
 

@@ -7,10 +7,11 @@ import * as fromRoot from '../app.reducer';
 import * as webpages from './webpage.actions';
 import { ApiService } from '../core/services';
 
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class WebpageService {
-  private webpagesUrl = 'http://localhost:8989/webpages';
+  private webpagesUrl = `${environment.apiUrl}/webpages`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
 
