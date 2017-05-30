@@ -26,6 +26,6 @@ export class LoginComponent {
     }
 
     login() {
-        this.store.dispatch(new actions.LoginAction({ email: this.model.username, password: this.model.password, onCompleteActions: [new actions.Redirect({ route: '/' })] }));
+        this.store.dispatch(new actions.LoginAction({ email: this.model.username, password: this.model.password }));
     }
 }

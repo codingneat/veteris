@@ -20,10 +20,7 @@ export class AuthenticationService {
   constructor(private http: Http) {}
 
   login(username: string, password: string) {
-    console.log("url");
       const url = `${this.apiUrl}/login/`;
-
-       console.log("url");
 
       return this.http.post(url, JSON.stringify({ email: username, password: password }), {headers: this.headers})
           .map((response: Response) => {
@@ -38,7 +35,6 @@ export class AuthenticationService {
                   this.id = resp.user._id;
                   return true;
                 }
-
               }else{
                 this.authenticated = false;
               }
