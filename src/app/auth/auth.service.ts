@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import * as io from 'socket.io-client';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
+import { SocketService } from '../core/services';
+
 
 
 @Injectable()
@@ -12,11 +14,10 @@ export class AuthService {
   private id: string = "";
   private apiUrl = `${environment.apiUrl}/auth`;
   private headers = new Headers({'Content-Type': 'application/json'});
-  private socket;
   private url = `${environment.apiUrl}`; 
 
 
-  constructor(private http: Http) {
+  constructor(private router: Router,  private socketService: SocketService, private http: Http) {
   }
 
   login(payload: any) {
@@ -29,10 +30,9 @@ export class AuthService {
               if(resp.success){
                 this.authenticated = true;
                 if (resp && resp.id_token) {
-                  localStorage.setItem('id_token', resp.id_token);
-                  this.socket = io.connect(this.url, { query:  {id:  resp.user._id} });
-                  this.id = resp.user._id;
                   localStorage.setItem('id_user', resp.user._id);
+                  localStorage.setItem('id_token', resp.id_token);
+                  this.socketService.conectUser();
                   return true;
                 }
               }
