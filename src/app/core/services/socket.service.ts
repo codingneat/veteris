@@ -15,11 +15,10 @@ export class SocketService {
 
   constructor(private router: Router, private authenticationService: AuthenticationService) {
 
-
   }
 
   conectUser() {
-    this.socket = io.connect(this.url, { path: '/veteris-api/socket.io', query: { id: localStorage.getItem('id_user') } });
+    this.socket = io.connect(this.url, { query: { id: localStorage.getItem('id_user') } });
 
     let listener2 = Observable.fromEvent(this.socket, 'news');
     listener2.subscribe((payload) => {

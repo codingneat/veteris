@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://codingneat.com/veteris-api'
+  apiUrl: 'http://138.197.106.209:8989'
 };

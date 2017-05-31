@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8989/veteris-api'
+  apiUrl: 'http://localhost:8989'
 };
