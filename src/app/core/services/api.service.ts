@@ -37,7 +37,7 @@ export class ApiService {
         return this.http.get(url, options);
     }
 
-    post(endpoint: string) {
+    post(endpoint: string, body: any) {
         const url = `${this.apiUrl}/${endpoint}`;
         let authToken = localStorage.getItem('id_token');
         let headers = new Headers();
@@ -45,7 +45,7 @@ export class ApiService {
         headers.append('Authorization', `Bearer ${authToken}`);
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(url, options)
+        return this.http.post(url, body, options)
             .toPromise();
     }
 
@@ -61,7 +61,7 @@ export class ApiService {
             .toPromise();
     }
 
-    delete(endpoint: string, body: any) {
+    delete(endpoint: string) {
         const url = `${this.apiUrl}/${endpoint}`;
         let authToken = localStorage.getItem('id_token');
         let headers = new Headers();

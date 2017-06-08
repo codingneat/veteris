@@ -10,7 +10,7 @@ import { EnumsService }  from '../enums.service';
 @Component({
   selector: 'themes-list',
   templateUrl: './theme-list.component.html',
-  styleUrls: ['./theme-list.component.scss']
+  styleUrls: ['./theme-list.component.styl']
 })
 export class ThemeListComponent {
   @Output() themeSelected = new EventEmitter();

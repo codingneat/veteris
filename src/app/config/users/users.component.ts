@@ -2,19 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'config-users',
-  template:  `
+  template: `
     <div>Users</div>
    `,
 })
 export class UsersComponent {
 
-    constructor() {
-
-
-
-
-     }
-
-  
+  constructor() {
+  }
 
 }

@@ -9,7 +9,7 @@ import { CategoryFormComponent, CategoryListComponent } from './categories';
 
 
 @NgModule({
-  declarations: [  
+  declarations: [
     EnumsComponent,
     ThemeFormComponent,
     ThemeListComponent,
@@ -25,7 +25,7 @@ import { CategoryFormComponent, CategoryListComponent } from './categories';
   providers: [
     EnumsService
   ],
-  exports: [  
+  exports: [
     EnumsComponent,
     ThemeFormComponent,
     ThemeListComponent,
@@ -33,6 +33,6 @@ import { CategoryFormComponent, CategoryListComponent } from './categories';
     TagListComponent,
     CategoryFormComponent,
     CategoryListComponent
-   ],
+  ],
 })
-export class EnumsModule {}
+export class EnumsModule { }

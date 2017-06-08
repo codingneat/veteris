@@ -1,15 +1,11 @@
 <div>
-    <label>Category: </label>
-    <div class="input-group"> 
-      <input [(ngModel)]="name" class="form-control" placeholder="name" />
-      <span class="input-group-btn">
-         <button (click)="save()" [disabled]="name==''" class="btn btn-success">Save</button>
-      </span>
-    </div>
-    <br/> 
-    <div class="input-group"> 
-      <md-select placeholder="Theme" [(ngModel)]="theme">
-        <md-option *ngFor="let theme of themes$ | async" [value]="theme._id">{{ theme.name}}</md-option>
-      </md-select> 
-    </div>
+  <md-input-container class="input-container">
+    <input mdInput [(ngModel)]="name" placeholder="Category" />
+  </md-input-container>
+  <md-select placeholder="Theme" [(ngModel)]="theme">
+    <md-option *ngFor="let theme of themes$ | async" [value]="theme._id">{{ theme.name}}</md-option>
+  </md-select>
+  <br/>
+  <br/>
+  <button (click)="save()" [disabled]="name==''" md-raised-button class="button-primary">Save</button>
 </div>

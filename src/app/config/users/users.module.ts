@@ -8,7 +8,7 @@ import { UserService } from './user.service';
 
 
 @NgModule({
-  declarations: [  
+  declarations: [
     UsersComponent,
     UserFormComponent,
     UserListComponent
@@ -20,10 +20,11 @@ import { UserService } from './user.service';
   providers: [
     UserService
   ],
-  exports: [  
+  exports: [
     UsersComponent,
     UserFormComponent,
     UserListComponent
-   ],
+  ],
 })
-export class UsersModule {}
+
+export class UsersModule { }

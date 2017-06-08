@@ -5,21 +5,18 @@ import { go } from '@ngrx/router-store';
 import { User } from '../../models/user';
 import { ApiService } from '../../core/services';
 
-import { environment } from '../../../environments/environment';
-
 
 @Injectable()
 export class UserService {
-  private usersUrl = `${environment.apiUrl}/users`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
-
 
   constructor(private http: Http, private apiService: ApiService) { }
 
   getUsers() {
-    return this.apiService.getObs('users')
-    .map(response => response.json())
-    .catch(this.handleError);
+    return this.apiService
+      .getObs('users')
+      .map(response => response.json())
+      .catch(this.handleError);
   }
 
   getUser(id: string): Promise<User> {
@@ -38,23 +35,22 @@ export class UserService {
   }
 
   create(user: User): Promise<User> {
-    return this.http
-      .post(this.usersUrl, JSON.stringify(user), { headers: this.headers })
-      .toPromise()
+    const url = `users`;
+    return this.apiService
+      .post(url, user)
       .then(res => res.json())
       .catch(this.handleError);
   }
 
   delete(id: string): Promise<void> {
-    const url = `${this.usersUrl}/${id}`;
-    return this.http.delete(url, { headers: this.headers })
-      .toPromise()
+    const url = `users/${id}`;
+    return this.apiService
+      .delete(url)
       .then(() => null)
       .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
 }

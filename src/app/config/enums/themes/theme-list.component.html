@@ -9,8 +9,8 @@
     <tr *ngFor="let item of themes$ | async; trackBy:getItemName;let i = index">
       <td>{{item.name}} </td>
       <td>
-        <button (click)="edit(item)" type="button" class="btn btn-xs btn-info"><md-icon class="md-18">mode_edit</md-icon> </button> &nbsp;&nbsp;&nbsp;
-        <button  (click)="delete(item._id,i)" type="button" class="btn btn-xs btn-danger"><md-icon class="md-18">delete</md-icon></button>
+        <button md-mini-fab color="primary" (click)="edit(item)"><md-icon class="md-18">create</md-icon></button>&nbsp;&nbsp;&nbsp;
+        <button md-mini-fab color="warn" (click)="delete(item._id,i)"><md-icon class="md-18">delete</md-icon></button>
       </td>
     </tr>
   </tbody>

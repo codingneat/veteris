@@ -20,10 +20,8 @@ export class UsersEffects {
         .map(data => ({ type: users.LOAD_SUCCEEDED, payload: data }))
     )
     .catch((error) => {
-      return of(new users.loadFailed({ ...error.json(),  errorStatus: error.status }))
+      return of(new users.loadFailed({ ...error.json(), errorStatus: error.status }))
     });
 
-
-
-   constructor(private actions$: Actions, private userService: UserService) { }
+  constructor(private actions$: Actions, private userService: UserService) { }
 }

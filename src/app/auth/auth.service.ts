@@ -44,7 +44,6 @@ export class AuthService {
   }
 
 
-
   checkToken(token: any): any {
     const url = `${this.apiUrl}/token/`;
 

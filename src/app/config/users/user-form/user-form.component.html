@@ -1,39 +1,37 @@
-<div class="row row-content">
-    <h2 class="title-content">User Form</h2>
-    <div class="col-sm-6">
-        <md-card>
-            <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
-                <div class="form-group">
-                    <label class="center-block">First Name: </label>
-                    <input class="form-control" formControlName="firstName">
-                </div>
-                <div class="form-group">
-                    <label class="center-block">Last Name: </label>
-                    <input class="form-control" formControlName="lastName">
-                </div>
-                <div class="form-group">
-                    <label class="center-block">Email: </label>
-                    <input class="form-control" formControlName="email">
-                </div>
-                <div class="form-group">
-                    <label class="center-block">Password: </label>
-                    <input class="form-control" type="password" formControlName="password">
-                </div>
-
-                <div style="margin-bottom: 1em">
-                    <button type="submit"
-                            [disabled]="userForm.pristine" class="btn btn-success">Save</button> &nbsp;
-
-                    <button (click)="revert()" type="button"
-                            [disabled]="userForm.pristine" class="btn btn-danger">Revert</button> &nbsp;                        
-                </div>
-            </form>
-        </md-card>
+<div>
+    <div fxLayout="row">
+        <h2 class="title-content">User Form</h2>
     </div>
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <div class="block" fxFlex="50" fxFlex.sm="100" fxFlex.xs="100">
+            <md-card>
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+                    <md-input-container class="input-container">
+                        <input mdInput placeholder="First Name" formControlName="firstName">
+                    </md-input-container>
+                    <md-input-container class="input-container">
+                        <input mdInput placeholder="Last Name" formControlName="lastName">
+                    </md-input-container>
+                    <md-input-container class="input-container">
+                        <input mdInput placeholder="Email" formControlName="email">
+                    </md-input-container>
+                    <md-input-container class="input-container">
+                        <input mdInput placeholder="Password" type="password" formControlName="password">
+                    </md-input-container>
 
-    <div class="col-sm-6">
-        <p>Form value: {{ userForm.value | json }}</p>
-        <p>Form status: {{ userForm.status | json }}</p>
-        <p>First Name value: {{ userForm.get('firstName').value }}</p>
+                    <div style="margin-bottom: 1em">
+                        <button type="submit" [disabled]="userForm.pristine" md-raised-button class="button-primary">Save</button> &nbsp;
+
+                        <button (click)="revert()" type="button" [disabled]="userForm.pristine" md-raised-button>Revert</button>                        &nbsp;
+                    </div>
+                </form>
+            </md-card>
+        </div>
+
+        <div class="block" fxFlex="50" fxFlex.sm="100" fxFlex.xs="100">
+            <p>Form value: {{ userForm.value | json }}</p>
+            <p>Form status: {{ userForm.status | json }}</p>
+            <p>First Name value: {{ userForm.get('firstName').value }}</p>
+        </div>
     </div>
 </div>

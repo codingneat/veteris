@@ -40,12 +40,12 @@ export const initialState: EnumState = {
 
 export function enumsReducer(state = initialState, action): EnumState {
   switch (action.type) {
-   case app.LOAD_DATA:
+    case app.LOAD_DATA:
       return {
-       themes : { items: [],loading: true, error: null },
-       tags : { items: [],loading: true, error: null },
-       categories : { items: [],loading: true, error: null }
-      };  
+        themes: { items: [], loading: true, error: null },
+        tags: { items: [], loading: true, error: null },
+        categories: { items: [], loading: true, error: null }
+      };
     case enums.LOAD_SUCCEEDED_THEMES:
       return Object.assign({}, state, {
         themes: { items: action.payload, loading: false, error: null }

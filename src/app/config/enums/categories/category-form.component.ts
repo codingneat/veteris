@@ -5,17 +5,17 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 import * as fromRoot from '../../../app.reducer';
-import * as enums  from '../enums.actions';
-import { EnumsService }  from '../enums.service';
+import * as enums from '../enums.actions';
+import { EnumsService } from '../enums.service';
 
 
 @Component({
   selector: 'category-form',
   templateUrl: './category-form.component.html',
-  styleUrls: ['./category-form.component.scss']
+  styleUrls: ['./category-form.component.styl']
 })
-export class CategoryFormComponent  {
-  @Input()  category: Category;
+export class CategoryFormComponent {
+  @Input() category: Category;
   name: string;
   theme: any;
   themes$: Observable<any[]>;
@@ -23,21 +23,21 @@ export class CategoryFormComponent  {
   constructor(
     private store: Store<fromRoot.AppState>,
     private enumsService: EnumsService) {
-      this.themes$ = store.select(enums.getThemesState);
+    this.themes$ = store.select(enums.getThemesState);
   }
 
 
   save() {
     this.category.name = this.name;
     this.category.theme = this.theme;
-    if(!this.category._id) {
+    if (!this.category._id) {
       delete this.category["_id"];
       this.enumsService.createCategory(this.category).then(x => this.store.dispatch(new enums.addCategory(x)));
-    }else{
+    } else {
       this.enumsService.updateCategory(this.category);
     }
-    this.name = ""; 
-    this.theme = ""; 
+    this.name = "";
+    this.theme = "";
   }
 
   ngOnChanges(...args: any[]) {

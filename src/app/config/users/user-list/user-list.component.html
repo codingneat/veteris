@@ -1,32 +1,32 @@
-<div class="row row-content">
-  <h2 class="title-content">Users </h2>
-  <div class="col-sm-6">
-    <md-card>
-      <table class="vm-table bordered">
-        <thead>
-          <tr>
-            <th>First Name </th>
-            <th>Last Name </th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of users$ | async; trackBy:getItemName;let i = index">
-            <td>{{item.firstName}} </td>
-            <td>{{item.lastName}} </td>
-            <td>{{item.email}}</td>
-            <td>
-              <button md-mini-fab color="primary" [routerLink]="['/config/users/user', { id: item._id }]"><md-icon class="md-18">check</md-icon></button>  &nbsp;&nbsp;&nbsp;
-              <button md-mini-fab color="warn" (click)="delete(item._id,i)"><md-icon class="md-18">delete</md-icon></button>  
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </md-card>
+<div>
+  <div fxLayout="row">
+    <h2 class="title-content">Users </h2>
+  </div>
+  <div fxLayout="row">
+    <div fxFlex="50" fxFlex.sm="100" fxFlex.xs="100"  fxLayout="column">
+      <md-card>
+        <table class="vm-table bordered">
+          <thead>
+            <tr>
+              <th>First Name </th>
+              <th>Last Name </th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of users$ | async; trackBy:getItemName;let i = index">
+              <td>{{item.firstName}} </td>
+              <td>{{item.lastName}} </td>
+              <td>{{item.email}}</td>
+              <td>
+                <button md-mini-fab color="primary" [routerLink]="['/config/users/user', { id: item._id }]"><md-icon class="md-18">create</md-icon></button>                &nbsp;&nbsp;&nbsp;
+                <button md-mini-fab color="warn" (click)="delete(item._id,i)"><md-icon class="md-18">delete</md-icon></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </md-card>
+    </div>
   </div>
 </div>
-
-
-
-

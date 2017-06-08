@@ -1,9 +1,8 @@
-  <div>
-    <label>Theme: </label>
-    <div class="input-group">
-      <input [(ngModel)]="name" class="form-control" placeholder="name" />
-      <span class="input-group-btn">
-         <button (click)="save()" [disabled]="name==''" class="btn btn-success">Save</button>
-      </span>
-    </div>
-  </div>
+<div>
+  <md-input-container class="input-container">
+    <input [(ngModel)]="name" mdInput placeholder="Theme" />
+  </md-input-container>
+  <br/>
+  <br/>
+  <button (click)="save()" [disabled]="name==''" md-raised-button class="button-primary">Save</button>
+</div>

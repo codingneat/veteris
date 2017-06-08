@@ -6,7 +6,6 @@ import { ConfigComponent } from './config.component';
 
 
 const routes: Routes = [
-
   {
    path: '',
    component: ConfigComponent,

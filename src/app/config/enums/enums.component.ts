@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Theme } from '../../models/theme';
-import { Tag } from '../../models/tag';
-import { Category } from '../../models/category';
+import { Theme, Tag, Category  } from '../../models';
 import { Store } from '@ngrx/store';
 
 import * as fromRoot from '../../app.reducer';

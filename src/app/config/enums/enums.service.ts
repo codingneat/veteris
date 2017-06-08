@@ -1,27 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
-
-import { Theme } from '../../models/theme';
-import { Tag } from '../../models/tag';
-import { Category } from '../../models/category';
+import { Theme, Tag, Category  } from '../../models';
 import { ApiService } from '../../core/services';
-
 import { environment } from '../../../environments/environment';
-
 
 
 @Injectable()
 export class EnumsService {
-  private themesUrl =  `${environment.apiUrl}/themes`;
-  private tagUrl =  `${environment.apiUrl}/tags`;
-  private categoryUrl =  `${environment.apiUrl}/categories`;
+  private themesUrl = `${environment.apiUrl}/themes`;
+  private tagUrl = `${environment.apiUrl}/tags`;
+  private categoryUrl = `${environment.apiUrl}/categories`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
-  constructor(private http: Http, private apiService: ApiService) { 
-   let authToken = localStorage.getItem('id_token');
-   this.headers.append('Authorization', `Bearer ${authToken}`);
+  constructor(private http: Http, private apiService: ApiService) {
+    let authToken = localStorage.getItem('id_token');
+    this.headers.append('Authorization', `Bearer ${authToken}`);
   }
 
   getThemes() {
@@ -48,11 +42,10 @@ export class EnumsService {
   deleteTheme(id: string): Promise<void> {
     const url = `themes/${id}`;
     return this.apiService
-      .delete(url, { headers: this.headers })
+      .delete(url)
       .then(() => null)
       .catch(this.handleError);
   }
-
 
   getTags() {
     return this.apiService.getObs('tags')
@@ -78,12 +71,10 @@ export class EnumsService {
   deleteTag(id: string): Promise<void> {
     const url = `tags/${id}`;
     return this.apiService
-      .delete(url, { headers: this.headers })
+      .delete(url)
       .then(() => null)
       .catch(this.handleError);
-
   }
-
 
   getCategories() {
     return this.apiService.getObs('categories')
@@ -109,11 +100,10 @@ export class EnumsService {
   deleteCategory(id: string): Promise<void> {
     const url = `categories/${id}`;
     return this.apiService
-      .delete(url, { headers: this.headers })
+      .delete(url)
       .then(() => null)
       .catch(this.handleError);
   }
-
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

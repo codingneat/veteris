@@ -5,13 +5,12 @@ import { Store } from '@ngrx/store';
 import * as fromRoot from '../../../app.reducer';
 import * as enums  from '../enums.actions';
 import { EnumsService }  from '../enums.service';
-//import { SocketService }    from '../../../core/services';
 
 
 @Component({
   selector: 'tags-list',
   templateUrl: './tag-list.component.html',
-  styleUrls: ['./tag-list.component.scss']
+  styleUrls: ['./tag-list.component.styl']
 })
 export class TagListComponent {
   @Output() tagSelected = new EventEmitter();
@@ -35,19 +34,7 @@ export class TagListComponent {
   }
 
   ngOnInit() {
-     this.connection =  this.getMessage();
   }
-
-  getMessage() {
-   // return this.socketService.getSocket();
-  }
-
- /* getMessag2() {
-      return this.socketService
-          .fromEvent<any>("newTweet")
-          .map(data => data );
-  }  */
-    
 
   edit(tag) {
     this.tagSelected.emit(tag);

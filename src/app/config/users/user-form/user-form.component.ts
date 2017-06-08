@@ -1,57 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import * as fromRoot from '../../../app.reducer';
-import * as users  from '../users.actions';
+import * as users from '../users.actions';
 import { User } from '../../../models/user'
-import { UserService }  from '../user.service';
+import { UserService } from '../user.service';
 
 
 @Component({
   selector: 'user-form',
   templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss']
+  styleUrls: ['./user-form.component.styl']
 })
-export class UserFormComponent implements OnInit  {
-  userForm: FormGroup; // <--- userForm is of type FormGroup
+export class UserFormComponent implements OnInit {
+  userForm: FormGroup;
   user: User;
 
   constructor(
-    private fb: FormBuilder, 
-    private userService: UserService, 
+    private fb: FormBuilder,
+    private userService: UserService,
     private store: Store<fromRoot.AppState>,
     private router: Router,
-    private route: ActivatedRoute) { // <--- inject FormBuilder
-      this.createForm();
+    private route: ActivatedRoute) {
+    this.createForm();
   }
 
   createForm() {
     this.userForm = this.fb.group({
-      firstName: ['', Validators.required ], // <--- the FormControl called "firstName"
-      lastName: '', 
-      email: ['', Validators.required ],
-      password: ['', Validators.required ],
+      firstName: ['', Validators.required],
+      lastName: '',
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
 
   }
 
   onSubmit() {
-    const userSubmit:User = this.prepareSaveUser();
-    if(!userSubmit._id) {
+    const userSubmit: User = this.prepareSaveUser();
+    if (!userSubmit._id) {
       delete userSubmit["_id"];
       this.userService.create(userSubmit);
-    }else{
+    } else {
       this.userService.update(userSubmit);
     }
-    
+
     this.router.navigate(['/config/users']);
   }
 
   prepareSaveUser(): User {
-     const formModel = this.userForm.value;
-     const SaveUser: User = {
+    const formModel = this.userForm.value;
+    const SaveUser: User = {
       _id: this.user ? this.user._id : "",
       firstName: formModel.firstName,
       lastName: formModel.lastName,
@@ -61,7 +61,7 @@ export class UserFormComponent implements OnInit  {
     return SaveUser;
   }
 
-  revert(){
+  revert() {
     this.userForm.setValue({
       firstName: this.user ? this.user.firstName : "",
       lastName: this.user ? this.user.lastName : "",
@@ -72,16 +72,16 @@ export class UserFormComponent implements OnInit  {
 
 
   ngOnInit() {
-    if(this.route.snapshot.params['id']){
-     
+    if (this.route.snapshot.params['id']) {
+
       this.route.params
         .switchMap((params: Params) => this.userService.getUser(params['id']))
         .subscribe((user: User) => {
-          this.user = user;   
+          this.user = user;
           this.userForm.setValue({
             firstName: this.user.firstName,
-            lastName:  this.user.lastName,
-            email:  this.user.email,
+            lastName: this.user.lastName,
+            email: this.user.email,
             password: this.user.password
           });
         });

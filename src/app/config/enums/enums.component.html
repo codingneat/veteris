@@ -1,26 +1,29 @@
-<div class="row row-content">
-    <h2 class="title-content">Enums</h2>
-    <div class="col-sm-5">
-        <md-card>
-           <theme-form *ngIf="selectedTab==0" [theme]="selectedTheme"></theme-form>
-           <tag-form *ngIf="selectedTab==1" [tag]="selectedTag"></tag-form>
-           <category-form  *ngIf="selectedTab==2" [category]="selectedCategory"></category-form>
-        </md-card>
+<div>
+    <div fxLayout="row">
+        <h2 class="title-content">Enums</h2>
     </div>
-    <div class="col-sm-7">
-        <md-card>
-            <md-tab-group (selectChange)="changeTab($event)">
-                <md-tab label="Themes">
-                    <themes-list (themeSelected)="handleThemeSelected($event)"></themes-list>
-                </md-tab>
-                <md-tab label="Tags">
-                    <tags-list (tagSelected)="handleTagSelected($event)"></tags-list>
-                </md-tab>
-                <md-tab label="Categories">
-                    <categories-list (categorySelected)="handleCategorySelected($event)"></categories-list>
-                </md-tab>
-            </md-tab-group>
-        </md-card>
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <div class="block" fxFlex="30" fxFlex.sm="100" fxFlex.xs="100">
+            <md-card>
+                <theme-form *ngIf="selectedTab==0" [theme]="selectedTheme"></theme-form>
+                <tag-form *ngIf="selectedTab==1" [tag]="selectedTag"></tag-form>
+                <category-form *ngIf="selectedTab==2" [category]="selectedCategory"></category-form>
+            </md-card>
+        </div>
+        <div class="block" fxFlex="70" fxFlex.sm="100" fxFlex.xs="100">
+            <md-card>
+                <md-tab-group (selectChange)="changeTab($event)">
+                    <md-tab label="Themes">
+                        <themes-list (themeSelected)="handleThemeSelected($event)"></themes-list>
+                    </md-tab>
+                    <md-tab label="Tags">
+                        <tags-list (tagSelected)="handleTagSelected($event)"></tags-list>
+                    </md-tab>
+                    <md-tab label="Categories">
+                        <categories-list (categorySelected)="handleCategorySelected($event)"></categories-list>
+                    </md-tab>
+                </md-tab-group>
+            </md-card>
+        </div>
     </div>
 </div>
-

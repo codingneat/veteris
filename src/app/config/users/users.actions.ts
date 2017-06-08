@@ -23,7 +23,7 @@ export class loadFailed implements Action {
 export class loadUsers implements Action {
   readonly type = LOAD_USERS;
 
-  constructor() {  }
+  constructor() { }
 }
 
 export class removeUser implements Action {
@@ -34,9 +34,9 @@ export class removeUser implements Action {
 
 export type Actions
   = loadSucceeded
-   | loadFailed
-   | removeUser
-   | loadUsers;
+  | loadFailed
+  | removeUser
+  | loadUsers;
 
 export const getUsersState = (state: fromRoot.AppState) => state.users.items;
 

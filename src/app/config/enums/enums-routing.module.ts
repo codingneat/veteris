@@ -1,14 +1,13 @@
-import { NgModule }     from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { EnumsComponent } from './enums.component';
 
 
 const routes: Routes = [
-
   {
-   path: '',
-   component: EnumsComponent,
+    path: '',
+    component: EnumsComponent,
   }
 ];
 
@@ -17,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EnumsRoutingModule {}
+export class EnumsRoutingModule { }
