@@ -3,10 +3,10 @@
     <div id="search-component">
       <h4>Tag Search</h4>
       <md-input-container>
-      <input [(ngModel)]="tag" #searchBox mdInput placeholder="tag" id="search-box" (keyup)="search(searchBox.value)" />
+        <input [(ngModel)]="tag" #searchBox mdInput placeholder="tag" id="search-box" (keyup)="search(searchBox.value)" />
       </md-input-container>
-      <div class="tag-search" >
-        <div class="tag-search-item search-result" *ngFor="let tag of tags | async" (click)="addTag(tag)" >
+      <div class="tag-search">
+        <div class="tag-search-item search-result" *ngFor="let tag of tags | async" (click)="addTag(tag)">
           {{tag.name}}
         </div>
       </div>

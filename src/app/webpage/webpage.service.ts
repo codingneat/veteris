@@ -27,7 +27,7 @@ export class WebpageService {
 
 
   create(name: string): Promise<any> {
-    return   this.apiService
+    return this.apiService
       .post('webpages', { name: name })
       .then(
       res => {
@@ -42,12 +42,11 @@ export class WebpageService {
 
   update(webpage: Webpage): Promise<any> {
     const url = `${this.webpagesUrl}/${webpage._id}`;
-    return this.http
-      .put(url, JSON.stringify(webpage), { headers: this.headers })
-      .toPromise()
+    return this.apiService
+      .put(`webpages/${webpage._id}`, webpage)
       .then(
       res => {
-        //this.toasterService.pop('success', 'Success', 'Success 2');
+        this.toasterService.pop('success', 'Success', 'Success 2');
         this.store.dispatch(new webpages.updateWebpage(res.json()));
       })
       .catch(this.handleError);

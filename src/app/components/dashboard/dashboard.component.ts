@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import * as fromRoot from '../../app.reducer';
-import * as webpages  from '../../webpage/webpage.actions';
-import { WebpageService }  from '../../webpage/webpage.service';
+import * as webpages from '../../webpage/webpage.actions';
+import { WebpageService } from '../../webpage/webpage.service';
 
 @Component({
   selector: 'dashboard',
@@ -17,7 +17,7 @@ export class DashboardComponent {
   webpages$: Observable<any[]>;
 
   constructor(
-    private store: Store<fromRoot.AppState>, 
+    private store: Store<fromRoot.AppState>,
     private webpageService: WebpageService,
     private router: Router) {
     this.webpages$ = store.select(webpages.getWebpagesState);
@@ -28,11 +28,11 @@ export class DashboardComponent {
     this.webpageService.create(this.name).then(x => {
       this.name = "";
       this.router.navigate(['/saving_webpage']);
-    }); 
-    
+    });
+
   }
 
   ngOnInit() {
-     this.store.dispatch(new webpages.loadLastWebpages());
+    this.store.dispatch(new webpages.loadLastWebpages());
   }
 }

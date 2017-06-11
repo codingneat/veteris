@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import { Store } from '@ngrx/store';
 
 import * as fromRoot from '../../../app.reducer';
-import * as enums  from '../../../config/enums/enums.actions';
+import * as enums from '../../../config/enums/enums.actions';
 import { Tag } from '../../../models/tag';
 
 @Component({
@@ -24,7 +24,7 @@ export class WebpageTagsComponent {
   constructor(
     private store: Store<fromRoot.AppState>,
     private webpageService: WebpageService
-  ) { 
+  ) {
     this.tags$ = store.select(enums.getTagsState);
   }
 
@@ -45,15 +45,15 @@ export class WebpageTagsComponent {
         // TODO: real error handling
         console.log(error);
         return Observable.of<Tag[]>([]);
-      }); 
+      });
   }
 
 
   searchService(term: string): Observable<Tag[]> {
-   return this.tags$
+    return this.tags$
       .map(x => {
         return x.filter(y => y.name.toLowerCase().includes(term.toLowerCase()))
-      })  
+      })
   }
 
   addTag(tag) {

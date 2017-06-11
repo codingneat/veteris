@@ -35,7 +35,6 @@ import { WebpageService } from './webpage/webpage.service';
 import { PageNotFoundComponent } from './components/page-not-found/not-found.component';
 import { SavingWebpageComponent } from './components/saving-webpage/saving-webpage.component';
 import { MainLayoutComponent } from './layouts/main-layout.component';
-import { HomeComponent } from './components/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -46,7 +45,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    HomeComponent,
     NavbarComponent,
     DashboardComponent,
     PageNotFoundComponent,

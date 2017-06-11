@@ -4,7 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { Store } from '@ngrx/store';
 
 import * as fromRoot from '../../../app.reducer';
-import * as enums  from '../../../config/enums/enums.actions';
+import * as enums from '../../../config/enums/enums.actions';
 import { WebpageService } from '../../webpage.service';
 import { Tag } from '../../../models/tag';
 
@@ -27,7 +27,7 @@ export class SearchFormComponent {
         private webpageService: WebpageService,
         private store: Store<fromRoot.AppState>,
     ) {
-        this.search = { tags:[]};
+        this.search = { tags: [] };
         this.themes$ = store.select(enums.getThemesState);
         this.categories$ = store.select(enums.getCategoriesState);
         this.tags$ = store.select(enums.getTagsState);
@@ -54,7 +54,7 @@ export class SearchFormComponent {
                 // TODO: real error handling
                 console.log(error);
                 return Observable.of<Tag[]>([]);
-            });  
+            });
     }
 
     searchService(term: string): Observable<Tag[]> {
@@ -67,7 +67,7 @@ export class SearchFormComponent {
     addTag(tag) {
         this.search.tags.push(tag.name);
         this.searchTerms.next("");
-        this.tag = "";       
+        this.tag = "";
     }
 
 }

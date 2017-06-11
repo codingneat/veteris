@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { SocketService }    from '../../core/services';
+import { SocketService } from '../../core/services';
 
 @Component({
   selector: 'saving-webpage',
@@ -10,18 +10,16 @@ import { SocketService }    from '../../core/services';
 export class SavingWebpageComponent {
 
   constructor(
-  private router: Router,
-  private socketService: SocketService) {
+    private router: Router,
+    private socketService: SocketService) {
   }
 
   ngOnInit() {
-      this.webpageSent();
+    this.webpageSent();
   }
 
   webpageSent() {
-     return this.socketService.savingWebpage();  
+    return this.socketService.savingWebpage();
   }
-
-
 
 }

@@ -14,20 +14,20 @@
             <li>
                 <a [href]="webpage.url" target="_blank"> {{webpage.url}} </a>
             </li>
-            <li> 
-                <span class="web-label"> Added At: </span> 
+            <li>
+                <span class="web-label"> Added At: </span>
                 <span> {{webpage.created_at | date: 'dd/MM/yyyy'}} </span>
             </li>
-            <li> 
-                <span class="web-label"> Type: </span> 
+            <li>
+                <span class="web-label"> Type: </span>
                 <span> {{webpage.type}} </span>
             </li>
             <li *ngIf="webpage?.website != null">
-                <span class="web-label"> Website: </span> 
+                <span class="web-label"> Website: </span>
                 <span><a [href]="webpage?.website.url" target="_blank"> {{webpage?.website.url}} </a> </span>
             </li>
             <li>
-                <span class="web-label"> User: </span> 
+                <span class="web-label"> User: </span>
                 <span>{{webpage.user != undefined ? webpage.user.firstName + ' ' + webpage.user.lastName : ''}} </span>
             </li>
         </ul>

@@ -23,7 +23,7 @@
                 </md-select>
             </div>
         </div>
-        <br/>
+        <br/><br/>
         <div fxLayout="row" fxLayoutWrap>
             <div fxFlex="50%" fxLayoutAlign="start">
                 <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasPoints"></md-checkbox>
@@ -43,7 +43,7 @@
                 </md-select>
             </div>
         </div>
-        <br/>
+        <br/><br/>
         <div fxLayout="row" fxLayoutWrap>
             <div fxFlex="50%" fxLayoutAlign="start">
                 <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasGrade"></md-checkbox>
@@ -61,7 +61,7 @@
                 </md-select>
             </div>
         </div>
-        <br/>
+        <br/><br/>
         <div fxLayout="row" fxLayoutWrap>
             <div fxFlex="50%" fxLayoutAlign="start">
                 <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasTitle"></md-checkbox>
@@ -76,8 +76,8 @@
                 </md-input-container>
             </div>
         </div>
-        <br/>
-      <div fxLayout="row" fxLayoutWrap>
+        <br/><br/>
+        <div fxLayout="row" fxLayoutWrap>
             <div fxFlex="50%" fxLayoutAlign="start">
                 <md-checkbox class="checkbox-margin" [(ngModel)]="search.hasTheme"></md-checkbox>
                 <md-select placeholder="Theme" [(ngModel)]="search.theme">
@@ -91,31 +91,32 @@
                 </md-select>
             </div>
         </div>
-        <br/> 
-       <div fxLayout="row" fxLayoutWrap>
+        <br/><br/>
+        <div fxLayout="row" fxLayoutWrap>
             <div fxFlex="100%" fxLayoutAlign="start">
                 <md-input-container class="width100">
-                    <input class="width100" [(ngModel)]="tag" #searchBox mdInput placeholder="Tag" id="search-box" (keyup)="searchTag(searchBox.value)" />
+                    <input class="width100" [(ngModel)]="tag" #searchBox mdInput placeholder="Tag" id="search-box" (keyup)="searchTag(searchBox.value)"
+                    />
                 </md-input-container>
             </div>
         </div>
         <div fxLayout="row" fxLayoutWrap>
             <div fxFlex="100%" fxLayoutAlign="start">
-              <div class="tag-search width100">
-                 <div class="tag-search-item search-result" *ngFor="let tag of tags | async" (click)="addTag(tag)">
+                <div class="tag-search width100">
+                    <div class="tag-search-item search-result" *ngFor="let tag of tags | async" (click)="addTag(tag)">
                         {{tag.name}}
-                    </div>  
-                </div> 
+                    </div>
+                </div>
             </div>
         </div>
         <br/>
         <div fxLayout="row" fxLayoutWrap>
             <div fxFlex="100%" fxLayoutAlign="start">
-             <md-chip-list *ngFor="let tag of search.tags">
+                <md-chip-list *ngFor="let tag of search.tags">
                     <md-chip class="tag-chip">{{tag}}</md-chip>
-                </md-chip-list> 
+                </md-chip-list>
             </div>
-        </div>  
+        </div>
         <br/><br/>
         <div class="input-group-btn">
             <button md-raised-button color="primary" type="button" (click)="searchWebsites()" class="btn btn-success">Save</button>

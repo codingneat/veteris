@@ -1,58 +1,58 @@
 <br/>
-<div fxLayout="row" fxLayout.lt-sm="column" >
-        <div fxFlex="50%" fxFlex.lt-sm="100%" fxFlexOffset="10px">
-            <md-input-container class="example-full-width">
-                <input [(ngModel)]="webpageForm.title" mdInput placeholder="Title" />
-            </md-input-container>
-            <br/>
+<div fxLayout="row" fxLayout.lt-sm="column">
+    <div fxFlex="50%" fxFlex.lt-sm="100%" fxFlexOffset="10px">
+        <md-input-container class="example-full-width">
+            <input [(ngModel)]="webpageForm.title" mdInput placeholder="Title" />
+        </md-input-container>
+        <br/>
 
-            <md-input-container class="example-full-width">
-                <input [(ngModel)]="webpageForm.author" mdInput placeholder="Author" />
-            </md-input-container>
-            <br/>
-            <md-input-container class="example-full-width">
-                <input [(ngModel)]="webpageForm.date" mdInput placeholder="Date" />
-            </md-input-container>
-            <br/><br/>
-            <div class="input-group">
-                <md-select placeholder="Theme" [(ngModel)]="webpageForm.theme">
-                    <md-option *ngFor="let theme of themes$ | async" [value]="theme._id">{{ theme.name}}</md-option>
-                </md-select>
-            </div>
-            <br/>
-            <div class="input-group">
-                <md-select placeholder="Category" [(ngModel)]="webpageForm.category">
-                    <md-option *ngFor="let category of categories$ | async" [value]="category._id">{{ category.name}}</md-option>
-                </md-select>
-            </div>
+        <md-input-container class="example-full-width">
+            <input [(ngModel)]="webpageForm.author" mdInput placeholder="Author" />
+        </md-input-container>
+        <br/>
+        <md-input-container class="example-full-width">
+            <input [(ngModel)]="webpageForm.date" mdInput placeholder="Date" />
+        </md-input-container>
+        <br/><br/>
+        <div class="input-group">
+            <md-select placeholder="Theme" [(ngModel)]="webpageForm.theme">
+                <md-option *ngFor="let theme of themes$ | async" [value]="theme._id">{{ theme.name}}</md-option>
+            </md-select>
         </div>
-        <div fxFlex="50%" fxFlex.lt-sm="100%" fxFlexOffset="10px">
-            <md-input-container class="example-full-width">
-                <textarea [(ngModel)]="webpageForm.description" style="height:50px"  mdInput placeholder="Description"> </textarea>
-            </md-input-container>
-            <br/><br/>
-            <div class="input-group">
-                <md-select placeholder="Type" [(ngModel)]="webpageForm.type">
-                    <md-option value="Article">Article</md-option>
-                    <md-option value="Repository">Repository</md-option>
-                    <md-option value="Tutorial">Tutorial</md-option>
-                    <md-option value="Video">Video</md-option>
-                </md-select>
-            </div>
-            <br/>
-            <div class="input-group">
-                <md-select placeholder="Status" [(ngModel)]="webpageForm.status">
-                    <md-option value="Active">Active</md-option>
-                    <md-option value="ToDefine">ToDefine</md-option>
-                    <md-option value="Outdated">Outdated</md-option>
-                    <md-option value="Deprecated">Deprecated</md-option>
-                </md-select>
-            </div>
-            <br/>
-            <md-slide-toggle [(ngModel)]="webpageForm.isUp">Is Up</md-slide-toggle>
-            <br/><br/>
-            <div class="input-group-btn">
-                <button md-raised-button color="primary" type="button" (click)="save()" class="btn btn-success">Search</button>
-            </div>
+        <br/>
+        <div class="input-group">
+            <md-select placeholder="Category" [(ngModel)]="webpageForm.category">
+                <md-option *ngFor="let category of categories$ | async" [value]="category._id">{{ category.name}}</md-option>
+            </md-select>
         </div>
+    </div>
+    <div fxFlex="50%" fxFlex.lt-sm="100%" fxFlexOffset="10px">
+        <md-input-container class="example-full-width">
+            <textarea [(ngModel)]="webpageForm.description" style="height:50px" mdInput placeholder="Description"> </textarea>
+        </md-input-container>
+        <br/><br/>
+        <div class="input-group">
+            <md-select placeholder="Type" [(ngModel)]="webpageForm.type">
+                <md-option value="Article">Article</md-option>
+                <md-option value="Repository">Repository</md-option>
+                <md-option value="Tutorial">Tutorial</md-option>
+                <md-option value="Video">Video</md-option>
+            </md-select>
+        </div>
+        <br/>
+        <div class="input-group">
+            <md-select placeholder="Status" [(ngModel)]="webpageForm.status">
+                <md-option value="Active">Active</md-option>
+                <md-option value="ToDefine">ToDefine</md-option>
+                <md-option value="Outdated">Outdated</md-option>
+                <md-option value="Deprecated">Deprecated</md-option>
+            </md-select>
+        </div>
+        <br/>
+        <md-slide-toggle [(ngModel)]="webpageForm.isUp">Is Up</md-slide-toggle>
+        <br/><br/>
+        <div class="input-group-btn">
+            <button md-raised-button color="primary" type="button" (click)="save()" class="btn btn-success">Save</button>
+        </div>
+    </div>
 </div>
