@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Store } from '@ngrx/store';
+import { ToasterService } from 'angular2-toaster';
 
 import { Webpage } from '../models/webpage';
 import * as fromRoot from '../app.reducer';
@@ -18,6 +19,7 @@ export class WebpageService {
   constructor(
     private http: Http,
     private apiService: ApiService,
+    private toasterService: ToasterService,
     private store: Store<fromRoot.AppState>) {
     let authToken = localStorage.getItem('id_token');
     this.headers.append('Authorization', `Bearer ${authToken}`);
@@ -25,16 +27,15 @@ export class WebpageService {
 
 
   create(name: string): Promise<any> {
-    return this.http
-      .post(this.webpagesUrl, JSON.stringify({ name: name }), { headers: this.headers })
-      .toPromise()
+    return   this.apiService
+      .post('webpages', { name: name })
       .then(
       res => {
-        //this.toasterService.pop('success', 'Success', 'Success 2');
+        this.toasterService.pop('success', 'Success', 'Success');
         res.json();
       })
       .catch(res => {
-        // this.toasterService.pop('danger', 'Error', 'Error 2');
+        this.toasterService.pop('danger', 'Error', 'Error');
         this.handleError;
       });
   }

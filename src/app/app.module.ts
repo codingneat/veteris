@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { Http, RequestOptions } from '@angular/http';
+import { ToasterModule } from 'angular2-toaster';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -59,6 +60,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FlexLayoutModule,
     AppRoutingModule,
     MaterialModule,
+    ToasterModule,
     StoreModule.provideStore(appReducer),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
@@ -68,14 +70,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     EffectsModule.run(WebpagesEffects),
     AuthModule,
     ConfigModule,
-    CoreModule.forRoot({userName: 'Miss Marple'}),
+    CoreModule.forRoot({ userName: 'Miss Marple' }),
     EnumsModule,
     UsersModule,
     WebpageModule
   ],
   providers: [
     MainLayoutComponentGuard,
-    UnauthenticatedGuard, WebpageService 
+    UnauthenticatedGuard, WebpageService
   ],
   bootstrap: [AppComponent]
 })
