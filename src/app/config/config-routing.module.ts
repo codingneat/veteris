@@ -1,4 +1,4 @@
-import { NgModule }     from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardConfigComponent } from './dashboard/dashboard-config.component';
@@ -7,9 +7,9 @@ import { ConfigComponent } from './config.component';
 
 const routes: Routes = [
   {
-   path: '',
-   component: ConfigComponent,
-   children: [
+    path: '',
+    component: ConfigComponent,
+    children: [
       {
         path: '',
         component: DashboardConfigComponent,
@@ -22,10 +22,9 @@ const routes: Routes = [
         path: 'enums',
         loadChildren: 'app/config/enums/enums.module#EnumsModule'
       },
-  
-   ]
- }
 
+    ]
+  }
 ];
 
 
@@ -33,4 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ConfigRoutingModule {}
+export class ConfigRoutingModule { }

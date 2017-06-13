@@ -5,6 +5,7 @@ export const LOGIN_SUCCESS = '[Auth] Login_Success';
 export const LOGIN_FAILURE = '[Auth] Login_Failure';
 export const REDIRECT = '[Auth] Redirect';
 
+
 export class LoginAction implements Action {
   readonly type = LOGIN;
 
@@ -31,5 +32,5 @@ export class Redirect implements Action {
 
 export type Actions
   = LoginAction
-   | LoginSuccessAction
-   | LoginFailureAction;
+  | LoginSuccessAction
+  | LoginFailureAction;

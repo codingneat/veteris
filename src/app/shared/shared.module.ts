@@ -4,26 +4,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AwesomePipe, InitCapsPipe, TruncatePipe } from './pipes';
-
+import { InitCapsPipe, TruncatePipe } from './pipes';
 
 
 @NgModule({
-  imports: [ 
+  imports: [
     CommonModule,
   ],
-   declarations: [ 
-    AwesomePipe, 
+  declarations: [
     InitCapsPipe,
     TruncatePipe
   ],
-  exports: [ 
-    AwesomePipe,
-    InitCapsPipe, 
+  exports: [
+    InitCapsPipe,
     TruncatePipe,
-    CommonModule, 
-    FormsModule, 
-    ReactiveFormsModule,   
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule
   ]

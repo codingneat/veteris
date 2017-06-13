@@ -11,11 +11,10 @@ import * as app from '../app.actions';
 export class MainLayoutComponent {
   appName = "Veteris";
 
-    constructor(
+  constructor(
     private store: Store<fromRoot.AppState>
   ) {
   }
-
 
   ngOnInit() {
     this.store.dispatch(new app.loadData());

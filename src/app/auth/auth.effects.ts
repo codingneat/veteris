@@ -6,14 +6,12 @@ import { go } from '@ngrx/router-store';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-
 import { AuthService } from './auth.service'
 import * as actions from './auth.actions';
 
 
 @Injectable()
 export class AuthEffects {
-
 
   @Effect() login$: Observable<Action> = this.actions$
     .ofType(actions.LOGIN)
@@ -36,12 +34,6 @@ export class AuthEffects {
     .map(action => action.payload)
     .filter(payload => payload && payload.errorStatus === 500)
     .map(payload => go(['/login']));
-    
 
-
-
-    constructor(private actions$: Actions, private router: Router, private authService: AuthService) { }
-
-
-
+  constructor(private actions$: Actions, private router: Router, private authService: AuthService) { }
 }

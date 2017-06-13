@@ -13,16 +13,16 @@ import { SearchFormComponent } from './search/components';
 import { WebpageService } from './webpage.service';
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     WebpageCardComponent,
-    WebpageComponent, 
+    WebpageComponent,
     WebpageLeftCardComponent,
     WebpageFormMetadataComponent,
     WebpageCommentsComponent,
-    WebpageTagsComponent, 
+    WebpageTagsComponent,
     WebpagesComponent,
     SearchComponent,
-    SearchFormComponent 
+    SearchFormComponent
   ],
   imports: [
     SharedModule,
@@ -31,9 +31,9 @@ import { WebpageService } from './webpage.service';
   providers: [
     WebpageService,
   ],
-  exports: [ 
-    WebpageComponent, 
+  exports: [
+    WebpageComponent,
     WebpagesComponent
   ],
 })
-export class WebpageModule {}
+export class WebpageModule { }

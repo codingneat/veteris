@@ -7,15 +7,13 @@ import { Router } from '@angular/router';
 import { SocketService } from '../core/services';
 
 
-
 @Injectable()
 export class AuthService {
   private authenticated: boolean = false;
   private id: string = "";
   private apiUrl = `${environment.apiUrl}/auth`;
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private url = `${environment.apiUrl}`;
-
+  
 
   constructor(private router: Router, private socketService: SocketService, private http: Http) {
   }
@@ -26,8 +24,6 @@ export class AuthService {
     return this.http.post(url, JSON.stringify({ email: payload.email, password: payload.password }), { headers: this.headers })
       .map((response: Response) => {
         let resp = response.json();
-
-        console.log(resp, "resp")
 
         if (resp.success) {
           this.authenticated = true;
@@ -42,7 +38,6 @@ export class AuthService {
         return false;
       });
   }
-
 
   checkToken(token: any): any {
     const url = `${this.apiUrl}/token/`;
@@ -84,8 +79,7 @@ export class AuthService {
   }
 
   catchError(err) {
-     this.router.navigate(['/login']);
-        console.log('err')
-       return Observable.throw(err || 'backend server error');
+    this.router.navigate(['/login']);
+    return Observable.throw(err || 'backend server error');
   }
 }

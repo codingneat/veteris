@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 import * as fromRoot from '../../../app.reducer';
-import * as enums  from '../enums.actions';
-import { EnumsService }  from '../enums.service';
+import * as enums from '../enums.actions';
+import { EnumsService } from '../enums.service';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class TagListComponent {
   tags$: Observable<any[]>;
 
   constructor(
-    private store: Store<fromRoot.AppState>, 
+    private store: Store<fromRoot.AppState>,
     private enumService: EnumsService) {
     this.tags$ = store.select(enums.getTagsState);
   }
@@ -39,6 +39,4 @@ export class TagListComponent {
   edit(tag) {
     this.tagSelected.emit(tag);
   }
-
-
 }

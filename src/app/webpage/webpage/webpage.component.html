@@ -1,22 +1,20 @@
-<div fxLayout="row" fxLayout.lt-sm="column" >
+<div fxLayout="row" fxLayout.lt-sm="column">
     <div fxFlex="40%" fxFlex.lt-sm="100%" fxLayoutAlign="center" fxFlexOffset="10px">
         <webpage-left-card [webpage]="webpage$|async"></webpage-left-card>
         <br/>
     </div>
     <div fxFlex="60%" fxFlex.lt-sm="100%" fxFlexOffset="10px" class="background-white mat-card">
-            <md-tab-group>
-                <md-tab label="Comments">
-                    <webpage-comments [webpage]="webpage$|async"></webpage-comments>
-                </md-tab>
-                <md-tab label="Form">
-                    <webpage-form-metadata [webpage]="webpage$|async"></webpage-form-metadata>
-                </md-tab>
-                <md-tab label="Tags">
-                    <webpage-tags [webpage]="webpage$|async"></webpage-tags>
-                </md-tab>
-                <md-tab label="References">References</md-tab>
-            </md-tab-group>
+        <md-tab-group>
+            <md-tab label="Comments">
+                <webpage-comments [webpage]="webpage$|async"></webpage-comments>
+            </md-tab>
+            <md-tab label="Form">
+                <webpage-form-metadata [webpage]="webpage$|async"></webpage-form-metadata>
+            </md-tab>
+            <md-tab label="Tags">
+                <webpage-tags [webpage]="webpage$|async"></webpage-tags>
+            </md-tab>
+            <md-tab label="References">References</md-tab>
+        </md-tab-group>
     </div>
 </div>
-
-

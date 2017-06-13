@@ -6,7 +6,6 @@ import { ConfigRoutingModule } from './config-routing.module';
 import { UsersModule } from './users/users.module';
 
 
-
 @NgModule({
   declarations: [ConfigComponent, DashboardConfigComponent],
   imports: [

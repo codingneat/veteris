@@ -1,5 +1,6 @@
 import * as auth from './auth.actions';
 
+
 export interface AuthState {
     authenticated: boolean;
 };

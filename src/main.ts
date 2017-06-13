@@ -15,8 +15,6 @@ import 'rxjs/add/observable/throw';
 
 
 
-
-
 if (environment.production) {
   enableProdMode();
 }

@@ -40,5 +40,4 @@ export class TagFormComponent implements OnInit {
   ngOnInit() {
 
   }
-
 }

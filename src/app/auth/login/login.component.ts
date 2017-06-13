@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from "../../app.reducer";
 import * as actions from '../auth.actions';
 
+
 @Component({
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.styl']

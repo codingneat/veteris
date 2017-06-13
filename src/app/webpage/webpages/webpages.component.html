@@ -1,7 +1,5 @@
 <div fxLayout="row" fxLayoutWrap="wrap">
-    <div fxFlex="25%" fxLayoutAlign="space-around center"  *ngFor="let webpage of webpages" >
-    <webpage-card [webpage]="webpage" ></webpage-card>
+    <div fxFlex="25%" fxLayoutAlign="space-around center" *ngFor="let webpage of webpages">
+        <webpage-card [webpage]="webpage"></webpage-card>
     </div>
-    
 </div>
-

@@ -91,17 +91,17 @@ export class loadCategoriesFailed implements Action {
 
 export type Actions
   = loadThemesSucceeded
-   | loadThemesFailed
-   | loadTagsSucceeded
-   | loadTagsFailed
-   | removeTheme
-   | removeTag
-   | removeCategory
-   | addTheme
-   | addTag
-   | addCategory
-   | loadCategoriesSucceeded
-   | loadCategoriesFailed;
+  | loadThemesFailed
+  | loadTagsSucceeded
+  | loadTagsFailed
+  | removeTheme
+  | removeTag
+  | removeCategory
+  | addTheme
+  | addTag
+  | addCategory
+  | loadCategoriesSucceeded
+  | loadCategoriesFailed;
 
 export const getThemesState = (state: fromRoot.AppState) => state.enums.themes.items;
 

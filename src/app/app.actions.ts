@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 
+
 export const LOAD_DATA = 'LOAD_DATA';
 
 export class loadData implements Action {

@@ -23,11 +23,8 @@ export class WebpageComponent {
     this.webpage$ = store.select(webpages.getWebpageState);
   }
 
-
   ngOnInit() {
     this.route.params
       .subscribe((params: Params) => this.store.dispatch(new webpages.loadWebpage(params['id'])));
   }
-
-
 }

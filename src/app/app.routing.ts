@@ -10,8 +10,6 @@ import { CanDeactivateGuard } from './guards/can-deactivate-guard.service';
 import { MainLayoutComponentGuard } from './guards/main-layout.guard';
 
 
-
-
 const appRoutes = [
   {
     path: '',
@@ -21,7 +19,7 @@ const appRoutes = [
   {
     path: 'login',
     loadChildren: 'app/auth/auth.module#AuthModule',
-    canActivate : [UnauthenticatedGuard]
+    canActivate: [UnauthenticatedGuard]
   },
   {
     path: 'saving_webpage',
@@ -33,8 +31,8 @@ const appRoutes = [
     canActivate: [MainLayoutComponentGuard],
     children: [
       {
-         path: 'home', 
-         component: DashboardComponent 
+        path: 'home',
+        component: DashboardComponent
       },
       {
         path: 'config',
@@ -49,14 +47,14 @@ const appRoutes = [
     ]
   },
   {
-     path: '**',
-     canActivate : [UnauthenticatedGuard],
-     component: PageNotFoundComponent
+    path: '**',
+    canActivate: [UnauthenticatedGuard],
+    component: PageNotFoundComponent
   }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(appRoutes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

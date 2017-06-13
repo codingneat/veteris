@@ -40,5 +40,4 @@ export class ThemeFormComponent implements OnInit {
   ngOnInit() {
 
   }
-
 }

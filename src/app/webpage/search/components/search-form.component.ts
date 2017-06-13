@@ -8,6 +8,7 @@ import * as enums from '../../../config/enums/enums.actions';
 import { WebpageService } from '../../webpage.service';
 import { Tag } from '../../../models/tag';
 
+
 @Component({
     selector: 'search-form',
     templateUrl: './search-form.component.html',
@@ -69,5 +70,4 @@ export class SearchFormComponent {
         this.searchTerms.next("");
         this.tag = "";
     }
-
 }

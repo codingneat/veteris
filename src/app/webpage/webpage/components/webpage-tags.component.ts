@@ -8,6 +8,7 @@ import * as fromRoot from '../../../app.reducer';
 import * as enums from '../../../config/enums/enums.actions';
 import { Tag } from '../../../models/tag';
 
+
 @Component({
   selector: 'webpage-tags',
   templateUrl: './webpage-tags.component.html',
@@ -61,7 +62,4 @@ export class WebpageTagsComponent {
     this.searchTerms.next("");
     this.tag = "";
   }
-
-
-
 }

@@ -27,7 +27,6 @@ export class WebpagesEffects {
         .catch(err => Observable.of({ type: webpages.LOAD_FAILED, payload: err }))
     );
   constructor(private actions$: Actions, private webpageService: WebpageService) { }
-
 }
 
 

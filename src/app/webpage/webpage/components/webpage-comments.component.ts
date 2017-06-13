@@ -21,5 +21,4 @@ export class WebpageCommentsComponent{
   save() {
      this.webpageService.addComment(this.comment, this.webpage);
   }
-
 }

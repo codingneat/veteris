@@ -1,4 +1,4 @@
-import { NgModule }     from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WebpageComponent } from './webpage/webpage.component';
 import { SearchComponent } from './search/search.component';
@@ -6,12 +6,12 @@ import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
-   path: '',
-   component: WebpageComponent,
-  }, 
+    path: '',
+    component: WebpageComponent,
+  },
   {
-   path: 'search',
-   component: SearchComponent,
+    path: 'search',
+    component: SearchComponent,
   },
 
 ];
@@ -21,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WebpageRoutingModule {}
+export class WebpageRoutingModule { }

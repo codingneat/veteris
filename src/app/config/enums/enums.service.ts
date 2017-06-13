@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 
-import { Theme, Tag, Category  } from '../../models';
+import { Theme, Tag, Category } from '../../models';
 import { ApiService } from '../../core/services';
 import { environment } from '../../../environments/environment';
 

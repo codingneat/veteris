@@ -8,9 +8,9 @@ import { EnumsService } from './enums.service';
 import * as enums from './enums.actions';
 import * as app from '../../app.actions';
 
+
 @Injectable()
 export class EnumsEffects {
-
 
   @Effect() loadThemes$: Observable<Action> = this.actions$
     .ofType(app.LOAD_DATA)
@@ -37,7 +37,6 @@ export class EnumsEffects {
     );
 
   constructor(private actions$: Actions, private enumsService: EnumsService) { }
-
 }
 
 

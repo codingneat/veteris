@@ -22,15 +22,13 @@ export class UserListComponent {
     this.users$ = store.select(users.getUsersState);
   }
 
-
   getItemName(index, item) {
     return item.name;
   }
 
   delete(id, index) {
-    //this.userService.delete(id).then(this.ngRedux.dispatch(this.actions.removeUser(index)));
+    this.userService.delete(id).then(x => this.store.dispatch(new users.removeUser(index)));
   }
-
 
   ngOnInit() {
     return this.store.dispatch({ type: users.LOAD_USERS });

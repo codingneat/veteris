@@ -40,7 +40,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +67,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     EffectsModule.run(WebpagesEffects),
     AuthModule,
     ConfigModule,
-    CoreModule.forRoot({ userName: 'Miss Marple' }),
+    CoreModule,
     EnumsModule,
     UsersModule,
     WebpageModule

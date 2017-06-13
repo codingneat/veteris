@@ -67,13 +67,13 @@ export class loadWebpages implements Action {
 
 export type Actions
   = loadSucceeded
-   | loadFailed
-   | loadWebpage
-   | updateWebpage
-   | addComment
-   | addTag
-   | loadLastWebpages
-   | loadWebpagesSucceeded;
+  | loadFailed
+  | loadWebpage
+  | updateWebpage
+  | addComment
+  | addTag
+  | loadLastWebpages
+  | loadWebpagesSucceeded;
 
 export const getWebpagesState = (state: fromRoot.AppState) => state.webpages.webpages.webpages;
 

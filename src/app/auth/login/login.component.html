@@ -3,11 +3,13 @@
         <h2 class="title center">Veteris</h2>
         <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
             <md-input-container class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                <input mdInput placeholder="Username" name="username" type="email" [(ngModel)]="model.username" #username="ngModel" required />
+                <input mdInput placeholder="Username" name="username" type="email" [(ngModel)]="model.username" #username="ngModel" required
+                />
             </md-input-container>
             <div *ngIf="f.submitted && !username.valid" class="mat-input-error">Username is required</div>
             <md-input-container class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                <input mdInput placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required />
+                <input mdInput placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required
+                />
             </md-input-container>
             <div *ngIf="f.submitted && !password.valid" class="mat-input-error">Password is required</div>
             <div class="form-group" fxLayoutAlign="end">

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   template: `<div fxLayout="row" fxLayoutAlign="center center" class="min-container">
               <div fxFlex="45" fxFlex.lt-sm="90%" >
