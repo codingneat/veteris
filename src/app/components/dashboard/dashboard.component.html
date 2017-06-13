@@ -11,7 +11,7 @@
                     </md-input-container>
                 </md-card-content>
                 <md-card-actions class="text-right">
-                    <button md-raised-button color="primary" (click)="add()" [disabled]="name==''" class="btn btn-success">Add</button>
+                   &nbsp;&nbsp; <button md-raised-button color="primary" (click)="add()" [disabled]="name==''" class="btn btn-success">Add</button>
                 </md-card-actions>
             </md-card>
             <br>
@@ -19,7 +19,13 @@
                 <md-list>
                     <h3 md-subheader>Queries</h3>
                     <md-list-item>
-                        <md-icon class="query-item">note</md-icon>Item 1
+                        <md-icon class="query-item">note</md-icon> <a href="#"> Last Day Webpages </a>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-icon class="query-item">note</md-icon> <a href="#">  Last Week Webpages </a>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-icon class="query-item">note</md-icon> <a href="#"> Last Month Webpages </a>
                     </md-list-item>
                 </md-list>
             </md-card>

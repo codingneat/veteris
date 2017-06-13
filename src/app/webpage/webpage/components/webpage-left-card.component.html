@@ -4,7 +4,7 @@
         <div md-card-avatar class="header-image"></div>
     </md-card-header>
     <div class="web-image">
-        <img class="card-image" md-card-image [src]="webpage.image">
+        <img class="card-image" md-card-image [src]="webpage.image ? webpage.image : 'assets/webpage.jpg'">
     </div>
     <md-card-content>
         <p class="web-description">
