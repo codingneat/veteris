@@ -11,5 +11,6 @@ export class Webpage {
   type ='';
   user= {firstName:'',lastName:''};
   points ='';
+  image ='';
   favourite=false;
 }
