@@ -1,5 +1,8 @@
 <div fxLayout="row" fxLayoutWrap="wrap">
-    <div fxFlex="25%" fxLayoutAlign="space-around center" *ngFor="let webpage of webpages">
+    <div fxFlex="25%" fxLayoutAlign="space-around center" *ngFor="let webpage of webpagesClone">
         <webpage-card [webpage]="webpage"></webpage-card>
     </div>
+</div>
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <app-pagination [offset]="offset" [limit]="limit" [size]="webpages.length" (pageChange)="onPageChange($event)"></app-pagination>
 </div>

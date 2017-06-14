@@ -1,9 +1,8 @@
-<div>
+<div class="m-18">
     <div fxLayout="row">
         <md-input-container class="full-width">
-            <textarea [(ngModel)]="comment" style="height:50px" mdInput placeholder="Comment"> </textarea>
+            <textarea [(ngModel)]="comment" style="height:150px" mdInput placeholder="Comment"> </textarea>
         </md-input-container>
-
     </div>
 
     <div class="input-group-btn">
@@ -15,7 +14,7 @@
     <div fxLayout="row">
         <div fxFlex="100%" fxFlex.lt-sm="100%" fxFlexOffset="10px">
             <ul *ngFor="let comment of webpage.comments; let i = index">
-                <li>{{comment.user.firstName}} {{comment.user.lastName}} : {{comment.text}}</li>
+                <li><span class="user">{{comment.user.firstName}} {{comment.user.lastName}}</span>: {{comment.text}}</li>
             </ul>
         </div>
 

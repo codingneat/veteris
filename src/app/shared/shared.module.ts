@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { InitCapsPipe, TruncatePipe } from './pipes';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { InitCapsPipe, TruncatePipe } from './pipes';
   ],
   declarations: [
     InitCapsPipe,
-    TruncatePipe
+    TruncatePipe,
+    PaginationComponent
   ],
   exports: [
     InitCapsPipe,
@@ -22,7 +24,8 @@ import { InitCapsPipe, TruncatePipe } from './pipes';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    PaginationComponent
   ]
 })
 export class SharedModule { }
